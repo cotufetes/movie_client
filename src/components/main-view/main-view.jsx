@@ -10,7 +10,7 @@ export const MainView = () => {
     fetch("https://cotuflix-c45510e677a7.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
-        const moviesFromApi = data.movies.map((movie) => {
+        const moviesFromApi = data.movies?.map((movie) => {
           return {
             _id: movie._id,
             Title: movie.Title,
@@ -26,7 +26,7 @@ export const MainView = () => {
           };
         });
 
-        setBooks(moviesFromApi);
+        setMovies(moviesFromApi);
       });
   }, []);
 
@@ -38,13 +38,13 @@ export const MainView = () => {
     );
   }
 
-  if (movies.length === 0) {
+  if (movies?.length === 0) {
     return <div>The list is empty!</div>
   }
 
   return (
     <div>
-      {movies.map((movie) => (
+      {movies?.map((movie) => (
         <MovieCard 
           key={movie.Title}
           movie={movie}
