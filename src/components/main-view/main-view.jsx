@@ -10,7 +10,7 @@ export const MainView = () => {
     fetch("https://cotuflix-c45510e677a7.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
-        const moviesFromApi = data.movies?.map((movie) => {
+        const moviesFromApi = data.map((movie) => {
           return {
             _id: movie._id,
             Title: movie.Title,
@@ -27,6 +27,7 @@ export const MainView = () => {
         });
 
         setMovies(moviesFromApi);
+
       });
   }, []);
 
