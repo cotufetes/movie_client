@@ -50,15 +50,20 @@ export const MainView = () => {
 
   return (
     <div>
-      {movies?.map((movie) => (
-        <MovieCard 
-          key={movie.Title}
-          movie={movie}
-          onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie);
-          }}
-        />
-      ))}
+      <div>
+        {movies?.map((movie) => (
+          <MovieCard 
+            key={movie.Title}
+            movie={movie}
+            onMovieClick={(newSelectedMovie) => {
+              setSelectedMovie(newSelectedMovie);
+            }}
+          />
+        ))}
+      </div>
+      <div>
+        <button onClick={() => { setUser(null); }}>Logout</button>
+      </div>
     </div>
   );
 };
